@@ -17,7 +17,7 @@ router.get('/', async (req, res, next) => {
 });
 
 router.get('/:id',
-  validatorHandler(getUserSchema, 'params'),
+  validatorHandler(getUserSchema, 'params'),//
   async (req, res, next) => {
     try {
       const { id } = req.params;
