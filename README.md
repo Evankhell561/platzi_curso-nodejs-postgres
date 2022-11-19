@@ -8,3 +8,7 @@ psql -h localhost -d my_store -U nico // conectarte con esta base de datos
 
 una vezn en la base de datos:
 \d+
+
+// para mysql
+docker-compose up -d mysql
+docker-compose ps          // ver base de datos
