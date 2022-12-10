@@ -13,6 +13,6 @@ const sequelize = new Sequelize(URI, {
 
 setupModels(sequelize);
 
-sequelize.sync()
+// sequelize.sync() // ya no es necesario, sequelize-cli se encarga de esto // esto se encargaba de crear las tablas en la base de datos
 
 module.exports = sequelize;
