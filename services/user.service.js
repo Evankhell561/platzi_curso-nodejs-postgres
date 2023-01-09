@@ -14,7 +14,9 @@ class UserService {
     // lo comentado es en lenguaje SQL
     // const rta = await client.query('SELECT * FROM task ORDER BY id ASC');
     // return rta.rows;
-    const rta = await models.User.findAll();
+    const rta = await models.User.findAll({
+      include: ["customer"]
+    });
     return rta;
   }
 
