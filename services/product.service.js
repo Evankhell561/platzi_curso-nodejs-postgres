@@ -5,8 +5,8 @@ const sequelize = require('../libs/sequelize');
 class ProductsService {
 
   constructor() {
-    this.products = [];
-    this.generate();
+    // this.products = [];
+    // this.generate();
   }
 
   generate() {
@@ -23,19 +23,22 @@ class ProductsService {
   }
 
   async create(data) {
-    const newProduct = {
-      id: faker.datatype.uuid(),
-      ...data
-    }
-    this.products.push(newProduct);
-    return newProduct;
+    // const newProduct = {
+    //   id: faker.datatype.uuid(),
+    //   ...data
+    // }
+    // this.products.push(newProduct);
+    // return newProduct;
+    const rta = await sequelize.models.Product.create(data);
+    return rta;
   }
 
   async find() {
-    const query = 'SELECT * FROM task ORDER BY id ASC';
-    //const [data, metadata] = await sequelize.query(query); // no necesitamos la metadata
-    const [data] = await sequelize.query(query);
-    return data;
+    // const query = 'SELECT * FROM task ORDER BY id ASC';
+    // //const [data, metadata] = await sequelize.query(query); // no necesitamos la metadata
+    // const [data] = await sequelize.query(query);
+    const rta = await sequelize.models.Product.findAll({include: ['category']});
+    return rta;
   }
 
   async findOne(id) {
