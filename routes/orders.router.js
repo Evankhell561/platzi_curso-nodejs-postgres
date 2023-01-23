@@ -14,19 +14,6 @@ router.get('/',  async (req, res, next) => {
   }
 });
 
-router.get('/:id',
-  validatorHandler(getOrderShema, 'params'),
-  async (req, res, next) => {
-    try {
-      const { id } = req.params;
-      const order = await service.findOne(id);
-      res.json(order);
-    } catch (error) {
-      next(error);
-    }
-  }
-);
-
 router.post('/',
   validatorHandler(createOrderShema, 'body'),
   async (req, res, next) => {
@@ -57,8 +44,22 @@ router.get('/items', async (req, res, next) => {
   try {
     res.json(await service.findItems());
   } catch (error) {
-    console.log("error:", error.mesaage);
   }
 });
+
+
+router.get('/:id',
+  validatorHandler(getOrderShema, 'params'),
+  async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      const order = await service.findOne(id);
+      res.json(order);
+    } catch (error) {
+      next(error);
+    }
+  }
+);
+
 
 module.exports = router;

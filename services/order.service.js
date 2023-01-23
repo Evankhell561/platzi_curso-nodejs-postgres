@@ -31,7 +31,7 @@ class OrderService {
           association: 'customer',
           include: ['user'],
         },
-        // 'items',
+        'items',
       ],
     });
     if (!order) {
