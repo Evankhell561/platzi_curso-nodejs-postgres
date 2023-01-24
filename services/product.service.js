@@ -33,11 +33,19 @@ class ProductsService {
     return rta;
   }
 
-  async find() {
+  async find(query) {
     // const query = 'SELECT * FROM task ORDER BY id ASC';
     // //const [data, metadata] = await sequelize.query(query); // no necesitamos la metadata
     // const [data] = await sequelize.query(query);
-    const rta = await sequelize.models.Product.findAll({include: ['category']});
+    const { limit, offset } = query;
+    const optios = {
+      include: ['category'],
+    };
+    if(limit && offset) {
+      optios.limit = limit;
+      optios.offset = offset;
+    }
+    const rta = await sequelize.models.Product.findAll(optios);
     return rta;
   }
 
