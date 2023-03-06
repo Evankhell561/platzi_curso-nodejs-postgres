@@ -12,3 +12,6 @@ una vezn en la base de datos:
 // para mysql
 docker-compose up -d mysql
 docker-compose ps          // ver base de datos
+
+// sube todo
+docker-compose up -d
