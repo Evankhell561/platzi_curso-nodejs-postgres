@@ -3,9 +3,9 @@ services:
   postgres:
     image: postgres:13
     environment:
-      - POSTGRES_DB=payment_backend
+      - POSTGRES_DB=payment_backoffice
       - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=kamisama123
+      - POSTGRES_PASSWORD=evan
     ports:
       - 5432:5432
     volumes:
